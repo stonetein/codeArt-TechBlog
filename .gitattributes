@@ -1,1 +1,2 @@
 video/maya/Graph_Editor_tool.mp4 filter=lfs diff=lfs merge=lfs -text
+themes/fluid/source/video/maya/Graph_Editor_tool.mp4 filter=lfs diff=lfs merge=lfs -text
