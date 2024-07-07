@@ -235,6 +235,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/codeArt-TechBlog/remark/" target="_self">
+                
+                <span>remark</span>
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -412,6 +424,34 @@
   
     <article id="comments" lazyload>
       
+  <div id="remark42"></div>
+  <script type="text/javascript">
+    var schema = document.documentElement.getAttribute('data-user-color-scheme');
+    if (schema !== 'light' && schema !== 'dark') {
+      schema = 'light';
+    }
+    var remark_config = Object.assign(
+      {"host":"http://techblog.diskstation.me:8081","site_id":"remark","max_shown_comments":10,"locale":"en","components":["embed"]},
+      {
+        url: '/codeArt-TechBlog/2024/05/14/%E9%97%9C%E6%96%BC%E7%AB%99%E9%95%B7/',
+        page_title: '關於站長 example',
+        theme: schema,
+      }
+    );
+
+    Fluid.utils.loadComments('#remark42', function() {
+      (function (c) {
+        for (var i = 0; i < c.length; i++) {
+          var d = document, s = d.createElement('script');
+          s.src = remark_config.host + '/web/' + c[i] + '.js';
+          s.defer = true;
+          (d.head || d.body).appendChild(s);
+        }
+      })(remark_config.components || ['embed']);
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
     </article>
   

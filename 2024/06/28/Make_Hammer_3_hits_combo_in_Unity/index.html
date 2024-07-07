@@ -25,10 +25,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://stonetein.github.io/codeArt-TechBlog/img/hammer.jfif">
 <meta property="article:published_time" content="2024-06-28T13:43:28.060Z">
-<meta property="article:modified_time" content="2024-07-05T02:11:04.897Z">
+<meta property="article:modified_time" content="2024-07-06T10:53:02.330Z">
 <meta property="article:author" content="Stone">
-<meta property="article:tag" content="Unity">
 <meta property="article:tag" content="maya">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://stonetein.github.io/codeArt-TechBlog/img/hammer.jfif">
   
@@ -238,6 +238,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/codeArt-TechBlog/remark/" target="_self">
+                
+                <span>remark</span>
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -395,11 +407,9 @@
 <li>Include Cameras (包括相機)：選擇是否導出場景中的相機。</li>
 <li>Include Lights (包括燈光)：選擇是否導出場景中的燈光。</li>
 </ol>
-<h3 id="Setting-up-the-animation-and-blending-attributes："><a href="#Setting-up-the-animation-and-blending-attributes：" class="headerlink" title="Setting up the animation and blending attributes："></a>Setting up the animation and blending attributes：</h3><h4 id="animation-assets"><a href="#animation-assets" class="headerlink" title="animation assets"></a>animation assets</h4><img src="/codeArt-TechBlog/img/unity/animation_assets.png.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
+<h3 id="Setting-up-the-animation-and-blending-attributes："><a href="#Setting-up-the-animation-and-blending-attributes：" class="headerlink" title="Setting up the animation and blending attributes："></a>Setting up the animation and blending attributes：</h3><h4 id="animation-assets"><a href="#animation-assets" class="headerlink" title="animation assets"></a>animation assets</h4><img src="/codeArt-TechBlog/img/unity/animation_assets.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
 
-<h4 id="attributes"><a href="#attributes" class="headerlink" title="attributes"></a>attributes</h4><img src="/codeArt-TechBlog/img/unity/Setting_up_the_animation_and_blending.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
-
-<h3 id="Setting-up-the-character-prefab-and-rig-attributes："><a href="#Setting-up-the-character-prefab-and-rig-attributes：" class="headerlink" title="Setting up the character prefab and rig attributes："></a>Setting up the character prefab and rig attributes：</h3><img src="/codeArt-TechBlog/img/unity/mayaExportFbx.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
+<h4 id="Setting-up-the-animation-and-blending-attributes"><a href="#Setting-up-the-animation-and-blending-attributes" class="headerlink" title="Setting up the animation and blending attributes."></a>Setting up the animation and blending attributes.</h4><img src="/codeArt-TechBlog/img/unity/Setting_up_the_animation_and_blending.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
 
 <h3 id="create-player-camera"><a href="#create-player-camera" class="headerlink" title="create player_camera"></a>create player_camera</h3><h4 id="CameraFollow-cs"><a href="#CameraFollow-cs" class="headerlink" title="CameraFollow.cs"></a>CameraFollow.cs</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cs"><span class="hljs-keyword">using</span> UnityEngine;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CameraFollow</span> : <span class="hljs-title">MonoBehaviour</span><br>&#123;<br>  <span class="hljs-keyword">public</span> Transform target; <span class="hljs-comment">// 角色的 Transform</span><br>  <span class="hljs-keyword">public</span> Vector3 offset;   <span class="hljs-comment">// 相機和角色之間的偏移量</span><br>  <span class="hljs-keyword">public</span> <span class="hljs-built_in">float</span> smoothSpeed = <span class="hljs-number">0.125f</span>; <span class="hljs-comment">// 平滑跟隨的速度</span><br><br>  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">LateUpdate</span>()</span><br>  &#123;<br>      <span class="hljs-comment">// 計算相機應該的位置</span><br>      Vector3 desiredPosition = target.position + offset;<br>      <span class="hljs-comment">// 平滑移動相機到目標位置</span><br>      Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);<br>      transform.position = smoothedPosition;<br><br>      <span class="hljs-comment">// 確保相機朝向角色</span><br>      transform.LookAt(target);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -410,7 +420,7 @@
 
 <h4 id="setup-in-animation-then-add-events-to-frmes-bar"><a href="#setup-in-animation-then-add-events-to-frmes-bar" class="headerlink" title="setup in animation then add events to frmes bar"></a>setup in animation then add events to frmes bar</h4>   <img src="/codeArt-TechBlog/img/unity/add_event_setup.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
 
-<h3 id="setup-animator-controller"><a href="#setup-animator-controller" class="headerlink" title="setup animator controller"></a>setup animator controller</h3><h4 id="controller-assets"><a href="#controller-assets" class="headerlink" title="controller assets"></a>controller assets</h4><img src="/codeArt-TechBlog/img/unity/setup_animator_controller.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+<h3 id="setup-animator-controller"><a href="#setup-animator-controller" class="headerlink" title="setup animator controller"></a>setup animator controller</h3><h4 id="controller-assets"><a href="#controller-assets" class="headerlink" title="controller assets"></a>controller assets</h4><img src="/codeArt-TechBlog/img/unity/setup_animator_controller.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
 
 <h3 id="animator-controller"><a href="#animator-controller" class="headerlink" title="animator controller"></a>animator controller</h3><video width="800" controls>
 <source src="/codeArt-TechBlog/video/unity/animator_controller.mp4" type="video/mp4">
@@ -451,9 +461,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/codeArt-TechBlog/tags/Unity/" class="print-no-link">#Unity</a>
-      
         <a href="/codeArt-TechBlog/tags/maya/" class="print-no-link">#maya</a>
+      
+        <a href="/codeArt-TechBlog/tags/Unity/" class="print-no-link">#Unity</a>
       
     </div>
   
@@ -536,6 +546,34 @@
   
     <article id="comments" lazyload>
       
+  <div id="remark42"></div>
+  <script type="text/javascript">
+    var schema = document.documentElement.getAttribute('data-user-color-scheme');
+    if (schema !== 'light' && schema !== 'dark') {
+      schema = 'light';
+    }
+    var remark_config = Object.assign(
+      {"host":"http://techblog.diskstation.me:8081","site_id":"remark","max_shown_comments":10,"locale":"en","components":["embed"]},
+      {
+        url: '/codeArt-TechBlog/2024/06/28/Make_Hammer_3_hits_combo_in_Unity/',
+        page_title: 'Make Hammer 3 hits combo in Unity',
+        theme: schema,
+      }
+    );
+
+    Fluid.utils.loadComments('#remark42', function() {
+      (function (c) {
+        for (var i = 0; i < c.length; i++) {
+          var d = document, s = d.createElement('script');
+          s.src = remark_config.host + '/web/' + c[i] + '.js';
+          s.defer = true;
+          (d.head || d.body).appendChild(s);
+        }
+      })(remark_config.components || ['embed']);
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
 
     </article>
   
