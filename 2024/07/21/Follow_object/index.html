@@ -16,25 +16,25 @@
   <meta name="author" content="Stone">
   <meta name="keywords" content="Maya,Rig,python,Animation,comfyUI,Unity,Unreal">
   
-    <meta name="description" content="usage 點擊要建立locator的位置，按下script  demo    scripts             12345678910111213import maya.cmds as cmds sel&#x3D;cmds.ls(sl&#x3D;1) bigbig &#x3D; 20 lc &#x3D; cmds.spaceLocator()[0] sp &#x3D; cmds.listRelatives( lc, s&#x3D;1 )[0]cmd">
+    <meta name="description" content="Follow object    GUI  Usage1234567step1. Select your A_objectstep2. Check the B_object you want to followstep3. Check your time rangestep4. Apply  Code1234567891011121314151617181920212223242526272829">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Position Locator">
-<meta property="og:url" content="https://stonetein.github.io/codeArt-TechBlog/2024/07/06/Position-Locator/index.html">
+<meta property="og:title" content="Follow Object">
+<meta property="og:url" content="https://stonetein.github.io/codeArt-TechBlog/2024/07/21/Follow_object/index.html">
 <meta property="og:site_name" content="codeArt-TechBlog">
-<meta property="og:description" content="usage 點擊要建立locator的位置，按下script  demo    scripts             12345678910111213import maya.cmds as cmds sel&#x3D;cmds.ls(sl&#x3D;1) bigbig &#x3D; 20 lc &#x3D; cmds.spaceLocator()[0] sp &#x3D; cmds.listRelatives( lc, s&#x3D;1 )[0]cmd">
+<meta property="og:description" content="Follow object    GUI  Usage1234567step1. Select your A_objectstep2. Check the B_object you want to followstep3. Check your time rangestep4. Apply  Code1234567891011121314151617181920212223242526272829">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/posicitionLocator.gif">
-<meta property="article:published_time" content="2024-07-06T10:13:12.356Z">
-<meta property="article:modified_time" content="2024-07-07T13:32:53.102Z">
+<meta property="og:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/followObject.gif">
+<meta property="article:published_time" content="2024-07-20T16:06:15.967Z">
+<meta property="article:modified_time" content="2024-07-20T16:06:16.016Z">
 <meta property="article:author" content="Stone">
 <meta property="article:tag" content="maya">
 <meta property="article:tag" content="tool">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/posicitionLocator.gif">
+<meta name="twitter:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/followObject.gif">
   
   
   
-  <title>Position Locator - codeArt-TechBlog</title>
+  <title>Follow Object - codeArt-TechBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"stonetein.github.io","root":"/codeArt-TechBlog/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/codeArt-TechBlog/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"stonetein.github.io","root":"/codeArt-TechBlog/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-N8HM7PFMMZ"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/codeArt-TechBlog/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -89,13 +89,13 @@
     <!-- Google tag (gtag.js) -->
     <script async>
       if (!Fluid.ctx.dnt) {
-        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-N8HM7PFMMZ", function() {
           window.dataLayer = window.dataLayer || [];
           function gtag() {
             dataLayer.push(arguments);
           }
           gtag('js', new Date());
-          gtag('config', '');
+          gtag('config', 'G-N8HM7PFMMZ');
         });
       }
     </script>
@@ -215,23 +215,15 @@
                   
                   <a class="dropdown-item" href="/codeArt-TechBlog/maya/" target="_self">
                     
-                    <span>Image</span>
+                    <span>Art</span>
                   </a>
                 
                   
                   
                   
-                  <a class="dropdown-item" href="/codeArt-TechBlog/404/" target="_self">
+                  <a class="dropdown-item" href="/codeArt-TechBlog/avatar/" target="_self">
                     
-                    <span>Motion</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="https://hexo.fluid-dev.com/docs/icon/" target="_self">
-                    
-                    <span>Audio</span>
+                    <span>Avatar</span>
                   </a>
                 
               </div>
@@ -261,13 +253,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/codeArt-TechBlog/img/maya/posicitionLocator.gif') no-repeat center center; background-size: cover;">
+     style="background: url('/codeArt-TechBlog/img/maya/followObject.gif') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Position Locator"></span>
+            <span id="subtitle" data-typed-text="Follow Object"></span>
           
         </div>
 
@@ -278,8 +270,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-06 18:13" pubdate>
-          July 6, 2024 pm
+        <time datetime="2024-07-21 00:06" pubdate>
+          July 21, 2024 am
         </time>
       </span>
     
@@ -290,7 +282,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          87 words
+          224 words
         
       </span>
     
@@ -301,7 +293,7 @@
         
         
         
-          1 mins
+          2 mins
         
       </span>
     
@@ -338,21 +330,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Position Locator</h1>
+            <h1 id="seo-header">Follow Object</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="usage"><a href="#usage" class="headerlink" title="usage"></a>usage</h2><ul>
-<li>點擊要建立locator的位置，按下script</li>
-</ul>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><video width="850" controls>
-<source src="https://lookdev.codeart3d.xyz/blog_video/maya/Position_Locator.mp4" type="video/mp4">
+                <h2 id="Follow-object"><a href="#Follow-object" class="headerlink" title="Follow object"></a>Follow object</h2><video controls style="width: 100%; height: auto;">
+<source src= "/codeArt-TechBlog/video/maya/followObject.mp4" type="video/mp4">
 </video>
 
-<h2 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h2><div class="note note-success">
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> maya.cmds <span class="hljs-keyword">as</span> cmds <br><br>sel=cmds.ls(sl=<span class="hljs-number">1</span>) <br>bigbig = <span class="hljs-number">20</span> <br>lc = cmds.spaceLocator()[<span class="hljs-number">0</span>] <br>sp = cmds.listRelatives( lc, s=<span class="hljs-number">1</span> )[<span class="hljs-number">0</span>]<br><br>cmds.setAttr(<span class="hljs-string">&quot;%s.overrideEnabled&quot;</span> % sp, <span class="hljs-number">1</span> )<br>cmds.setAttr(<span class="hljs-string">&quot;%s.overrideColor&quot;</span> % sp, <span class="hljs-number">9</span> )<br><br>cmds.setAttr( <span class="hljs-string">&quot;%s.localScale&quot;</span> % sp, bigbig, bigbig, bigbig ) <br>cmds.xform( lc,ws=<span class="hljs-number">1</span>, ro=cmds.xform(sel[<span class="hljs-number">0</span>],q=<span class="hljs-number">1</span>,ws=<span class="hljs-number">1</span>,ro=<span class="hljs-number">1</span>)) <br>cmds.xform( lc,ws=<span class="hljs-number">1</span>,t=cmds.xform(sel[<span class="hljs-number">0</span>],q=<span class="hljs-number">1</span>,ws=<span class="hljs-number">1</span>,t=<span class="hljs-number">1</span>))<br></code></pre></td></tr></table></figure>
-          </div>
+<h3 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h3><img src="/codeArt-TechBlog/img/maya/followObj.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="300" style="display: block; margin-left: 0;">
+
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">step1. Select your A_object<br><br>step2. Check the B_object you want to follow<br><br>step3. Check your time <span class="hljs-built_in">range</span><br><br>step4. Apply<br></code></pre></td></tr></table></figure>
+
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#~~ IMPORT - Area ~~#</span><br><br><span class="hljs-keyword">import</span> maya.cmds <span class="hljs-keyword">as</span> cmds<br><span class="hljs-keyword">import</span> maya.mel <span class="hljs-keyword">as</span> mel<br><br><span class="hljs-comment">#~~ End of IMPORT Area ~~#</span><br><br><span class="hljs-comment">#~~ Script - Area ~~#</span><br><br>WindowWinUi=<span class="hljs-string">&quot;TargetFollow&quot;</span> <span class="hljs-comment">#Here must to add &#x27; and &#x27; to be &#x27;xxxxxxxx&#x27;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">zarmWppsWinExe</span>(<span class="hljs-params">*args</span>):<br>    <span class="hljs-keyword">if</span> cmds.window(WindowWinUi, exists = <span class="hljs-literal">True</span>):<br>        cmds.deleteUI(WindowWinUi)<br><br>        <br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">Doit</span>():<br>    stime = cmds.intField( <span class="hljs-string">&#x27;startTimeField&#x27;</span>, q=<span class="hljs-number">1</span>, v=<span class="hljs-number">1</span> )<br>    etime = cmds.intField( <span class="hljs-string">&#x27;endTimeField&#x27;</span>, q=<span class="hljs-number">1</span>, v=<span class="hljs-number">1</span> ) + <span class="hljs-number">1</span><br>    time = stime	<br>    sel = cmds.ls(sl = <span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(stime,etime):<br>        cmds.currentTime(i)<br>        cmds.xform( sel[<span class="hljs-number">0</span>],ws=<span class="hljs-number">1</span>, m=cmds.xform(sel[<span class="hljs-number">1</span>],q=<span class="hljs-number">1</span>,ws=<span class="hljs-number">1</span>,m=<span class="hljs-number">1</span>) )<br>        cmds.setKeyframe(sel[<span class="hljs-number">0</span>])<br><br><span class="hljs-comment">#~~ End of Script Area ~~#q</span><br><br><span class="hljs-comment">#~~ UI - Area ~~#</span><br>zarmWppsWinExe()<br><br>cmds.window(WindowWinUi,bgc=(<span class="hljs-number">0.5</span>,<span class="hljs-number">0.5</span>,<span class="hljs-number">0.5</span>) )<br><br><span class="hljs-comment">#~~ Contents ~~#</span><br><br>cmds.columnLayout(<span class="hljs-string">&quot;A&quot;</span>)<br><br>cmds.rowColumnLayout(p=<span class="hljs-string">&quot;A&quot;</span>,nc=<span class="hljs-number">1</span>,cw=[(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>)])<br><br>cmds.text( label=<span class="hljs-string">&#x27;Target Object:&#x27;</span>)<br><br>cmds.separator ( h=<span class="hljs-number">5</span>, style=<span class="hljs-string">&#x27;none&#x27;</span>)<br><br>cmds.button(l=<span class="hljs-string">&quot;Apply&quot;</span>,bgc=(<span class="hljs-number">0.5</span>,<span class="hljs-number">0.8</span>,<span class="hljs-number">0.5</span>), command=(<span class="hljs-string">&#x27;Doit()&#x27;</span>))<br><br>cmds.separator ( h=<span class="hljs-number">5</span>, style=<span class="hljs-string">&#x27;none&#x27;</span>)<br><br>cmds.text( label=<span class="hljs-string">&#x27;Time Range:&#x27;</span>)<br><br>cmds.rowColumnLayout(p=<span class="hljs-string">&quot;A&quot;</span>,nc=<span class="hljs-number">3</span>,cw=[(<span class="hljs-number">1</span>,<span class="hljs-number">100</span>),(<span class="hljs-number">2</span>,<span class="hljs-number">100</span>)])<br><br>cmds.intField(<span class="hljs-string">&#x27;startTimeField&#x27;</span>, v=cmds.playbackOptions( q=<span class="hljs-number">1</span>, <span class="hljs-built_in">min</span>=<span class="hljs-number">1</span>))<br><br>cmds.intField(<span class="hljs-string">&#x27;endTimeField&#x27;</span>, v=cmds.playbackOptions( q=<span class="hljs-number">1</span>, <span class="hljs-built_in">max</span>=<span class="hljs-number">1</span> ))<br><br><br><span class="hljs-comment">#~~ Contents ~~#</span><br><br>cmds.showWindow(WindowWinUi)<br>cmds.window(WindowWinUi,e=<span class="hljs-number">1</span>,wh=(<span class="hljs-number">204</span>,<span class="hljs-number">102</span>),s=<span class="hljs-number">1</span> )<br>cmds.window(WindowWinUi,q=<span class="hljs-number">1</span>,wh=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -399,8 +390,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Position Locator</div>
-      <div>https://stonetein.github.io/codeArt-TechBlog/2024/07/06/Position-Locator/</div>
+      <div>Follow Object</div>
+      <div>https://stonetein.github.io/codeArt-TechBlog/2024/07/21/Follow_object/</div>
     </div>
     <div class="license-meta">
       
@@ -412,7 +403,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>July 6, 2024</div>
+          <div>July 21, 2024</div>
         </div>
       
       
@@ -444,15 +435,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/codeArt-TechBlog/2024/07/21/Make_Hammer_3_hits_combo_in_Unity/" title="Make Hammer 3 hits combo in Unity">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Make Hammer 3 hits combo in Unity</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/codeArt-TechBlog/2024/07/05/MoCapGraphPlus/" title="MoCap GraphPlus">
-                        <span class="hidden-mobile">MoCap GraphPlus</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
@@ -473,8 +464,8 @@
     var remark_config = Object.assign(
       {"host":"https://techblog.diskstation.me","site_id":"remark","max_shown_comments":10,"locale":"en","components":["embed"]},
       {
-        url: '/codeArt-TechBlog/2024/07/06/Position-Locator/',
-        page_title: 'Position Locator',
+        url: '/codeArt-TechBlog/2024/07/21/Follow_object/',
+        page_title: 'Follow Object',
         theme: schema,
       }
     );
@@ -484,6 +475,7 @@
         for (var i = 0; i < c.length; i++) {
           var d = document, s = d.createElement('script');
           s.src = remark_config.host + '/web/' + c[i] + '.js';
+          console.log(s.src)
           s.defer = true;
           (d.head || d.body).appendChild(s);
         }
@@ -543,6 +535,7 @@
 
 
   
+
 
 
 
