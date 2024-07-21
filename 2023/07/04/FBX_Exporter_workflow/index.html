@@ -16,25 +16,25 @@
   <meta name="author" content="Stone">
   <meta name="keywords" content="Maya,Rig,python,Animation,comfyUI,Unity,Unreal">
   
-    <meta name="description" content="usage 點擊要建立locator的位置，按下script  demo    scripts             12345678910111213import maya.cmds as cmds sel&#x3D;cmds.ls(sl&#x3D;1) bigbig &#x3D; 20 lc &#x3D; cmds.spaceLocator()[0] sp &#x3D; cmds.listRelatives( lc, s&#x3D;1 )[0]cmd">
+    <meta name="description" content="Step by Step:Acquisition and installationUnity fbxExport （實機操作演示）mesh 置換animation 更新Visibility switch on offlight 加入更換材質camera 導入 Game CAMERA 視角加入屬性控制 點擊 take 001 檔更新">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Position Locator">
-<meta property="og:url" content="https://stonetein.github.io/codeArt-TechBlog/2024/07/21/Position-Locator/index.html">
+<meta property="og:title" content="FBX Exporter workflow">
+<meta property="og:url" content="https://stonetein.github.io/codeArt-TechBlog/2023/07/04/FBX_Exporter_workflow/index.html">
 <meta property="og:site_name" content="codeArt-TechBlog">
-<meta property="og:description" content="usage 點擊要建立locator的位置，按下script  demo    scripts             12345678910111213import maya.cmds as cmds sel&#x3D;cmds.ls(sl&#x3D;1) bigbig &#x3D; 20 lc &#x3D; cmds.spaceLocator()[0] sp &#x3D; cmds.listRelatives( lc, s&#x3D;1 )[0]cmd">
+<meta property="og:description" content="Step by Step:Acquisition and installationUnity fbxExport （實機操作演示）mesh 置換animation 更新Visibility switch on offlight 加入更換材質camera 導入 Game CAMERA 視角加入屬性控制 點擊 take 001 檔更新">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/posicitionLocator.gif">
-<meta property="article:published_time" content="2024-07-20T16:06:16.182Z">
-<meta property="article:modified_time" content="2024-07-20T16:06:16.219Z">
+<meta property="og:image" content="https://stonetein.github.io/codeArt-TechBlog/img/ExporterWorkflow.png">
+<meta property="article:published_time" content="2023-07-04T11:00:44.000Z">
+<meta property="article:modified_time" content="2024-06-14T11:00:44.000Z">
 <meta property="article:author" content="Stone">
+<meta property="article:tag" content="Unity">
 <meta property="article:tag" content="maya">
-<meta property="article:tag" content="tool">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/posicitionLocator.gif">
+<meta name="twitter:image" content="https://stonetein.github.io/codeArt-TechBlog/img/ExporterWorkflow.png">
   
   
   
-  <title>Position Locator - codeArt-TechBlog</title>
+  <title>FBX Exporter workflow - codeArt-TechBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -253,13 +253,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/codeArt-TechBlog/img/maya/posicitionLocator.gif') no-repeat center center; background-size: cover;">
+     style="background: url('/codeArt-TechBlog/img/ExporterWorkflow.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Position Locator"></span>
+            <span id="subtitle" data-typed-text="FBX Exporter workflow"></span>
           
         </div>
 
@@ -270,8 +270,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-21 00:06" pubdate>
-          July 21, 2024 am
+        <time datetime="2023-07-04 19:00" pubdate>
+          July 4, 2023 pm
         </time>
       </span>
     
@@ -282,7 +282,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          87 words
+          34 words
         
       </span>
     
@@ -330,21 +330,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Position Locator</h1>
+            <h1 id="seo-header">FBX Exporter workflow</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    Last updated on June 14, 2024 pm
+                  
+                
+              </p>
             
             
               <div class="markdown-body">
                 
-                <h2 id="usage"><a href="#usage" class="headerlink" title="usage"></a>usage</h2><ul>
-<li>點擊要建立locator的位置，按下script</li>
-</ul>
-<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><video controls style="width: 100%; height: auto;">
-<source src="https://lookdev.codeart3d.xyz/blog_video/maya/Position_Locator.mp4" type="video/mp4">
-</video>
-
-<h2 id="scripts"><a href="#scripts" class="headerlink" title="scripts"></a>scripts</h2><div class="note note-success">
-            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> maya.cmds <span class="hljs-keyword">as</span> cmds <br><br>sel=cmds.ls(sl=<span class="hljs-number">1</span>) <br>bigbig = <span class="hljs-number">20</span> <br>lc = cmds.spaceLocator()[<span class="hljs-number">0</span>] <br>sp = cmds.listRelatives( lc, s=<span class="hljs-number">1</span> )[<span class="hljs-number">0</span>]<br><br>cmds.setAttr(<span class="hljs-string">&quot;%s.overrideEnabled&quot;</span> % sp, <span class="hljs-number">1</span> )<br>cmds.setAttr(<span class="hljs-string">&quot;%s.overrideColor&quot;</span> % sp, <span class="hljs-number">9</span> )<br><br>cmds.setAttr( <span class="hljs-string">&quot;%s.localScale&quot;</span> % sp, bigbig, bigbig, bigbig ) <br>cmds.xform( lc,ws=<span class="hljs-number">1</span>, ro=cmds.xform(sel[<span class="hljs-number">0</span>],q=<span class="hljs-number">1</span>,ws=<span class="hljs-number">1</span>,ro=<span class="hljs-number">1</span>)) <br>cmds.xform( lc,ws=<span class="hljs-number">1</span>,t=cmds.xform(sel[<span class="hljs-number">0</span>],q=<span class="hljs-number">1</span>,ws=<span class="hljs-number">1</span>,t=<span class="hljs-number">1</span>))<br></code></pre></td></tr></table></figure>
-          </div>
+                <h1 id="Step-by-Step"><a href="#Step-by-Step" class="headerlink" title="Step by Step:"></a>Step by Step:</h1><h3 id="Acquisition-and-installation"><a href="#Acquisition-and-installation" class="headerlink" title="Acquisition and installation"></a>Acquisition and installation</h3><h3 id="Unity-fbxExport-（實機操作演示）"><a href="#Unity-fbxExport-（實機操作演示）" class="headerlink" title="Unity fbxExport （實機操作演示）"></a>Unity fbxExport （實機操作演示）</h3><h3 id="mesh-置換"><a href="#mesh-置換" class="headerlink" title="mesh 置換"></a>mesh 置換</h3><h3 id="animation-更新"><a href="#animation-更新" class="headerlink" title="animation 更新"></a>animation 更新</h3><h3 id="Visibility-switch-on-off"><a href="#Visibility-switch-on-off" class="headerlink" title="Visibility switch on off"></a>Visibility switch on off</h3><h3 id="light-加入"><a href="#light-加入" class="headerlink" title="light 加入"></a>light 加入</h3><h3 id="更換材質"><a href="#更換材質" class="headerlink" title="更換材質"></a>更換材質</h3><h3 id="camera-導入-Game-CAMERA-視角"><a href="#camera-導入-Game-CAMERA-視角" class="headerlink" title="camera 導入 Game CAMERA 視角"></a>camera 導入 Game CAMERA 視角</h3><h3 id="加入屬性控制-點擊-take-001-檔更新"><a href="#加入屬性控制-點擊-take-001-檔更新" class="headerlink" title="加入屬性控制 點擊 take 001 檔更新"></a>加入屬性控制 點擊 take 001 檔更新</h3>
                 
               </div>
             
@@ -362,7 +361,7 @@
     
       <span class="category-chain">
         
-  <a href="/codeArt-TechBlog/categories/maya/" class="category-chain-item">maya</a>
+  <a href="/codeArt-TechBlog/categories/Unity/" class="category-chain-item">Unity</a>
   
   
 
@@ -377,9 +376,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/codeArt-TechBlog/tags/maya/" class="print-no-link">#maya</a>
+        <a href="/codeArt-TechBlog/tags/Unity/" class="print-no-link">#Unity</a>
       
-        <a href="/codeArt-TechBlog/tags/tool/" class="print-no-link">#tool</a>
+        <a href="/codeArt-TechBlog/tags/maya/" class="print-no-link">#maya</a>
       
     </div>
   
@@ -391,8 +390,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Position Locator</div>
-      <div>https://stonetein.github.io/codeArt-TechBlog/2024/07/21/Position-Locator/</div>
+      <div>FBX Exporter workflow</div>
+      <div>https://stonetein.github.io/codeArt-TechBlog/2023/07/04/FBX_Exporter_workflow/</div>
     </div>
     <div class="license-meta">
       
@@ -404,7 +403,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>July 21, 2024</div>
+          <div>July 4, 2023</div>
         </div>
       
       
@@ -436,11 +435,17 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/codeArt-TechBlog/2024/05/27/Make_Hammer_3_hits_combo_in_Unity/" title="Make Hammer 3 hits combo in Unity">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Make Hammer 3 hits combo in Unity</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/codeArt-TechBlog/2024/07/21/MoCapGraphPlus/" title="MoCap GraphPlus">
+                      <a href="/codeArt-TechBlog/2022/08/21/MoCapGraphPlus/" title="MoCap GraphPlus">
                         <span class="hidden-mobile">MoCap GraphPlus</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -465,8 +470,8 @@
     var remark_config = Object.assign(
       {"host":"https://techblog.diskstation.me","site_id":"remark","max_shown_comments":10,"locale":"en","components":["embed"]},
       {
-        url: '/codeArt-TechBlog/2024/07/21/Position-Locator/',
-        page_title: 'Position Locator',
+        url: '/codeArt-TechBlog/2023/07/04/FBX_Exporter_workflow/',
+        page_title: 'FBX Exporter workflow',
         theme: schema,
       }
     );
