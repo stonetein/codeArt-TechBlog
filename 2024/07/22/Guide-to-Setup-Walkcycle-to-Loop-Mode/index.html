@@ -1,0 +1,911 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/codeArt-TechBlog/img/favicon.png">
+  <link rel="icon" href="/codeArt-TechBlog/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Stone">
+  <meta name="keywords" content="Maya,Rig,python,Animation,comfyUI,Unity,Unreal">
+  
+    <meta name="description" content="Step-by-Step Guide to Setup Walkcycle to Loop Mode and Create Plane with Subdivisions    Step 1.Import Walkcycle Animation  首先，打開Maya並導入你的Walkcycle動畫。Step 2.Setup Walkcycle to Loop Mode設置Alembic動畫循環模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guide to Setup Walkcycle to Loop Mode">
+<meta property="og:url" content="https://stonetein.github.io/codeArt-TechBlog/2024/07/22/Guide-to-Setup-Walkcycle-to-Loop-Mode/index.html">
+<meta property="og:site_name" content="codeArt-TechBlog">
+<meta property="og:description" content="Step-by-Step Guide to Setup Walkcycle to Loop Mode and Create Plane with Subdivisions    Step 1.Import Walkcycle Animation  首先，打開Maya並導入你的Walkcycle動畫。Step 2.Setup Walkcycle to Loop Mode設置Alembic動畫循環模式">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/people-maya-cover.gif">
+<meta property="article:published_time" content="2024-07-22T14:06:45.000Z">
+<meta property="article:modified_time" content="2024-07-22T14:06:45.000Z">
+<meta property="article:author" content="Stone">
+<meta property="article:tag" content="maya">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://stonetein.github.io/codeArt-TechBlog/img/maya/people-maya-cover.gif">
+  
+  
+  
+  <title>Guide to Setup Walkcycle to Loop Mode - codeArt-TechBlog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/codeArt-TechBlog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/codeArt-TechBlog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/codeArt-TechBlog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"stonetein.github.io","root":"/codeArt-TechBlog/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":"ture","follow_dnt":true,"baidu":null,"google":{"measurement_id":"G-N8HM7PFMMZ"},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/codeArt-TechBlog/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/codeArt-TechBlog/js/utils.js" ></script>
+  <script  src="/codeArt-TechBlog/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=G-N8HM7PFMMZ", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-N8HM7PFMMZ');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/codeArt-TechBlog/">
+      <strong>Art ∣ Tech</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/codeArt-TechBlog/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/codeArt-TechBlog/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/codeArt-TechBlog/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/codeArt-TechBlog/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/codeArt-TechBlog/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iiconfont icon-codepen-fill"></i>
+                <span>Generative AI</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/codeArt-TechBlog/maya/" target="_self">
+                    
+                    <span>Art</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/codeArt-TechBlog/avatar/" target="_self">
+                    
+                    <span>Avatar</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/codeArt-TechBlog/img/maya/people-maya-cover.gif') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Guide to Setup Walkcycle to Loop Mode"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-22 22:06" pubdate>
+          July 22, 2024 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Guide to Setup Walkcycle to Loop Mode</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="Step-by-Step-Guide-to-Setup-Walkcycle-to-Loop-Mode-and-Create-Plane-with-Subdivisions"><a href="#Step-by-Step-Guide-to-Setup-Walkcycle-to-Loop-Mode-and-Create-Plane-with-Subdivisions" class="headerlink" title="Step-by-Step Guide to Setup Walkcycle to Loop Mode and Create Plane with Subdivisions"></a>Step-by-Step Guide to Setup Walkcycle to Loop Mode and Create Plane with Subdivisions</h2><video controls style="width: 100%; height: auto;">
+<source src="/codeArt-TechBlog/video/maya/Peoples-of-maya.mp4" type="video/mp4">
+</video>
+
+<h3 id="Step-1-Import-Walkcycle-Animation"><a href="#Step-1-Import-Walkcycle-Animation" class="headerlink" title="Step 1.Import Walkcycle Animation"></a><strong>Step 1.Import Walkcycle Animation</strong></h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step1.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="首先，打開Maya並導入你的Walkcycle動畫。"><a href="#首先，打開Maya並導入你的Walkcycle動畫。" class="headerlink" title="首先，打開Maya並導入你的Walkcycle動畫。"></a>首先，打開Maya並導入你的Walkcycle動畫。</h4><h3 id="Step-2-Setup-Walkcycle-to-Loop-Mode"><a href="#Step-2-Setup-Walkcycle-to-Loop-Mode" class="headerlink" title="Step 2.Setup Walkcycle to Loop Mode"></a>Step 2.Setup Walkcycle to Loop Mode</h3><p><strong>設置Alembic動畫循環模式</strong><br><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step2.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;"></p>
+<h4 id="1-選擇Alembic節點"><a href="#1-選擇Alembic節點" class="headerlink" title="1.	選擇Alembic節點"></a>1.	<strong>選擇Alembic節點</strong></h4><ul>
+<li>   在Outliner面板中，選擇包含Alembic動畫的對象。在這個例子中，選擇的“walkCycle_p01_AlembicNode”。</li>
+</ul>
+<h4 id="2-打開Alembic屬性"><a href="#2-打開Alembic屬性" class="headerlink" title="2.	打開Alembic屬性"></a>2.	<strong>打開Alembic屬性</strong></h4><ul>
+<li>   在右側屬性面板中，找到「Alembic Attributes」部分。</li>
+<li>   確保「AlembicNode」已被選中，並展開「Alembic Attributes」部分。</li>
+</ul>
+<h4 id="3-設置循環類型"><a href="#3-設置循環類型" class="headerlink" title="3.	設置循環類型"></a>3.	<strong>設置循環類型</strong></h4><ul>
+<li>   在「Cycle Type」選項中，選擇合適的循環模式。</li>
+<li>   在這個例子中，選擇「Loop」模式，使動畫無縫循環播放。</li>
+</ul>
+<h4 id="4-設置動畫參數"><a href="#4-設置動畫參數" class="headerlink" title="4.	設置動畫參數"></a>4.	<strong>設置動畫參數</strong></h4><ul>
+<li>   設置動畫的開始幀(Start Frame)和結束幀(End Frame)，在這個例子中分別設置和35。</li>
+<li>   確保其他參數如速度(Speed)和偏移量(Offset)設置正確，以實現所需的動畫效果。<strong>設置Alembic動畫循環模式</strong></li>
+</ul>
+<h4 id="5-選擇Alembic節點"><a href="#5-選擇Alembic節點" class="headerlink" title="5.	選擇Alembic節點"></a>5.	<strong>選擇Alembic節點</strong></h4><ul>
+<li>   在Outliner面板中，選擇包含Alembic動畫的對象。在這個例子中，選擇的是 “walkCycle_p01_AlembicNode”。</li>
+</ul>
+<h4 id="6-打開Alembic屬性"><a href="#6-打開Alembic屬性" class="headerlink" title="6.	打開Alembic屬性"></a>6.	<strong>打開Alembic屬性</strong></h4><ul>
+<li>   在右側屬性面板中，找到「Alembic Attributes」部分。</li>
+<li>   確保「AlembicNode」已被選中，並展開「Alembic Attributes」部分。</li>
+</ul>
+<h4 id="7-設置循環類型"><a href="#7-設置循環類型" class="headerlink" title="7.	設置循環類型"></a>7.	<strong>設置循環類型</strong></h4><ul>
+<li>   在「Cycle Type」選項中，選擇合適的循環模式。</li>
+<li>   在這個例子中，選擇「Loop」模式，使動畫無縫循環播放。</li>
+</ul>
+<h4 id="8-設置動畫參數"><a href="#8-設置動畫參數" class="headerlink" title="8.	設置動畫參數"></a>8.	<strong>設置動畫參數</strong></h4><ul>
+<li>   設置動畫的開始幀(Start Frame)和結束幀(End Frame)，在這個例子中分別設置為0和35。</li>
+<li>   確保其他參數如速度(Speed)和偏移量(Offset)設置正確，以實現所需的動畫效果。</li>
+</ul>
+<h3 id="Step-3-Create-a-Plane"><a href="#Step-3-Create-a-Plane" class="headerlink" title="Step 3.Create a Plane"></a><strong>Step 3.Create a Plane</strong></h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step3.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="在Maya中創建一個平面（Plane）。點擊「Create」-「Polygon-Primitives」-「Plane」。"><a href="#在Maya中創建一個平面（Plane）。點擊「Create」-「Polygon-Primitives」-「Plane」。" class="headerlink" title="在Maya中創建一個平面（Plane）。點擊「Create」&gt;「Polygon Primitives」&gt;「Plane」。"></a>在Maya中創建一個平面（Plane）。點擊「Create」&gt;「Polygon Primitives」&gt;「Plane」。</h4><h3 id="Step-4-Adjust-Plane-Subdivisions"><a href="#Step-4-Adjust-Plane-Subdivisions" class="headerlink" title="Step 4.Adjust Plane Subdivisions"></a><strong>Step 4.Adjust Plane Subdivisions</strong></h3><p><strong>創建MASH網絡並設置分佈類型</strong><br><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step4.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;"></p>
+<h4 id="1-選擇MASH選項"><a href="#1-選擇MASH選項" class="headerlink" title="1.	選擇MASH選項"></a>1.	<strong>選擇MASH選項</strong></h4><ul>
+<li>   在頂部菜單欄中，選擇「FX」&gt;「MASH」&gt;「Create MASH Network」來打開MASH選項對話框。</li>
+</ul>
+<h4 id="2-設置Geometry-Type"><a href="#2-設置Geometry-Type" class="headerlink" title="2.	設置Geometry Type"></a>2.	<strong>設置Geometry Type</strong></h4><ul>
+<li>   在MASH Options對話框中，設置「Geometry Type」為 “Mesh”。</li>
+</ul>
+<h4 id="3-設置Distribution-Type"><a href="#3-設置Distribution-Type" class="headerlink" title="3.	設置Distribution Type"></a>3.	<strong>設置Distribution Type</strong></h4><ul>
+<li>   在「Distribution Type」選項中，選擇合適的分佈類型。在這個例子中，選擇的是網格分佈。</li>
+</ul>
+<h4 id="4-應用設置"><a href="#4-應用設置" class="headerlink" title="4.	應用設置"></a>4.	<strong>應用設置</strong></h4><ul>
+<li>   確認所有設置無誤後，點擊「Apply and Close」按鈕應用這些設置並關閉對話框。</li>
+</ul>
+<h3 id="Step-5-用MASH工具進行群眾模擬設置"><a href="#Step-5-用MASH工具進行群眾模擬設置" class="headerlink" title="Step 5.用MASH工具進行群眾模擬設置"></a>Step 5.用MASH工具進行群眾模擬設置</h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step5.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="1-選擇角色組"><a href="#1-選擇角色組" class="headerlink" title="1.	選擇角色組"></a>1.	<strong>選擇角色組</strong></h4><ul>
+<li>   在Outliner中選擇包含角色的組 (如 “group1” 到 “group5”)。</li>
+</ul>
+<h4 id="2-打開MASH選項"><a href="#2-打開MASH選項" class="headerlink" title="2.	打開MASH選項"></a>2.	<strong>打開MASH選項</strong></h4><ul>
+<li>   在頂部菜單中選擇「Create」&gt;「MASH」&gt;「Create MASH Network」來打開MASH選項對話框。</li>
+</ul>
+<h4 id="3-設置MASH參數"><a href="#3-設置MASH參數" class="headerlink" title="3.	設置MASH參數"></a>3.	<strong>設置MASH參數</strong></h4><ul>
+<li>   在MASH選項對話框中，設置「Geometry Type」為 “Instancer”。</li>
+<li>   選擇「Distribution Type」為網格分佈。</li>
+</ul>
+<h4 id="4-應用設置-1"><a href="#4-應用設置-1" class="headerlink" title="4.	應用設置"></a>4.	<strong>應用設置</strong></h4><ul>
+<li>   點擊「Apply and Close」按鈕以應用設置並關閉對話框。</li>
+</ul>
+<h3 id="Step-6-用MASH工具進行群眾模擬設置"><a href="#Step-6-用MASH工具進行群眾模擬設置" class="headerlink" title="Step 6.用MASH工具進行群眾模擬設置"></a>Step 6.用MASH工具進行群眾模擬設置</h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step6.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="1-選擇MASH網絡"><a href="#1-選擇MASH網絡" class="headerlink" title="1.	選擇MASH網絡"></a>1.	<strong>選擇MASH網絡</strong></h4><ul>
+<li>   在左側的Outliner面板中，可以看到一個名為 “MASH1_ReproMesh” 和 “MASH2_Instancer” 的MASH網絡。</li>
+<li>   選中需要編輯的MASH網絡，在這個例子中選擇了 “MASH2_Instancer”。</li>
+</ul>
+<h4 id="2-打開MASH分佈選項"><a href="#2-打開MASH分佈選項" class="headerlink" title="2.	打開MASH分佈選項"></a>2.	<strong>打開MASH分佈選項</strong></h4><ul>
+<li>   在右側屬性面板中，可以看到MASH分佈節點（MASH_Distribute）的屬性設置。</li>
+<li>   這裡選擇了「Distribution Type」為 “Mesh”。</li>
+</ul>
+<h4 id="3-設置分佈參數"><a href="#3-設置分佈參數" class="headerlink" title="3.	設置分佈參數"></a>3.	<strong>設置分佈參數</strong></h4><ul>
+<li>   設置「Number of Points」為 5，表示將有5個實例被分佈。</li>
+<li>   確認「Distribution Type」設置為 “Mesh”。</li>
+<li>   確認「Method」設置為 “Scatter”。</li>
+</ul>
+<h4 id="4-連接輸入網格"><a href="#4-連接輸入網格" class="headerlink" title="4.	連接輸入網格"></a>4.	<strong>連接輸入網格</strong></h4><ul>
+<li>   在「Input Mesh」部分，目前顯示為「Not Connected」。</li>
+<li>   需要連接一個網格物體作為輸入網格，這將決定實例分佈的位置。</li>
+</ul>
+<h4 id="5-應用設置"><a href="#5-應用設置" class="headerlink" title="5.	應用設置"></a>5.	<strong>應用設置</strong></h4><ul>
+<li>   完成所有設置後，檢查並應用這些參數。</li>
+<li>   在右側面板的底部，可以看到「Seed」、「Strength」等額外屬性設置，用於進一步調整分佈效果。</li>
+</ul>
+<h3 id="Step-7-使用MASH工具進行群眾模擬設置"><a href="#Step-7-使用MASH工具進行群眾模擬設置" class="headerlink" title="Step 7.使用MASH工具進行群眾模擬設置"></a>Step 7.使用MASH工具進行群眾模擬設置</h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step7.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="1-選擇MASH網絡-1"><a href="#1-選擇MASH網絡-1" class="headerlink" title="1.	選擇MASH網絡"></a>1.	<strong>選擇MASH網絡</strong></h4><ul>
+<li>   在Outliner面板中，選擇你創建的MASH網絡。在這個例子中，選擇的是 “MASH1”。</li>
+</ul>
+<h4 id="2-打開MASH節點選項"><a href="#2-打開MASH節點選項" class="headerlink" title="2.	打開MASH節點選項"></a>2.	<strong>打開MASH節點選項</strong></h4><ul>
+<li>   在右側屬性面板中，展開MASH節點選項。你將看到多個可添加的節點類型。</li>
+</ul>
+<h4 id="3-添加Replicator節點"><a href="#3-添加Replicator節點" class="headerlink" title="3.	添加Replicator節點"></a>3.	<strong>添加Replicator節點</strong></h4><ul>
+<li>   在「Add Node」部分中，選擇並點擊「Replicator」節點。這將幫助你在場景中複製角色，創建群眾效果。</li>
+</ul>
+<h4 id="4-設置節點參數"><a href="#4-設置節點參數" class="headerlink" title="4.	設置節點參數"></a>4.	<strong>設置節點參數</strong></h4><ul>
+<li>   調整Replicator節點的參數，以控制複製角色的數量和分佈方式。確保角色均勻分佈在指定的區域內。</li>
+</ul>
+<h4 id="5-檢查和調整"><a href="#5-檢查和調整" class="headerlink" title="5.	檢查和調整"></a>5.	<strong>檢查和調整</strong></h4><ul>
+<li>   在視圖窗口中檢查複製角色的分佈情況，並根據需要進行微調，確保群眾效果符合預期。</li>
+</ul>
+<h3 id="Step-8-使用MASH工具進行群眾模擬設置"><a href="#Step-8-使用MASH工具進行群眾模擬設置" class="headerlink" title="Step 8.使用MASH工具進行群眾模擬設置"></a>Step 8.使用MASH工具進行群眾模擬設置</h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step8.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="1-選擇MASH網絡-2"><a href="#1-選擇MASH網絡-2" class="headerlink" title="1.	選擇MASH網絡"></a>1.	<strong>選擇MASH網絡</strong></h4><ul>
+<li>   在Outliner面板中，選擇你創建的MASH網絡。在這個例子中，選擇的是 “MASH1”。</li>
+</ul>
+<h4 id="2-打開MASH節點選項-1"><a href="#2-打開MASH節點選項-1" class="headerlink" title="2.	打開MASH節點選項"></a>2.	<strong>打開MASH節點選項</strong></h4><ul>
+<li>   在右側屬性面板中，展開MASH節點選項。</li>
+<li>   點擊「MASH1_Transform」節點，進入變換設置。</li>
+</ul>
+<h4 id="3-設置變換參數"><a href="#3-設置變換參數" class="headerlink" title="3.	設置變換參數"></a>3.	<strong>設置變換參數</strong></h4><ul>
+<li>   在「Transform」部分，調整位置(Position)、旋轉(Rotation)和縮放(Scale)參數以控制實例的分佈和變換。</li>
+<li>   點擊「Controller Null」旁邊的「Create」按鈕來創建一個控制器，以便更好地操控變換。</li>
+</ul>
+<h4 id="4-設置強度參數"><a href="#4-設置強度參數" class="headerlink" title="4.	設置強度參數"></a>4.	<strong>設置強度參數</strong></h4><ul>
+<li>   在「Strength」部分，勾選位置(Position)、旋轉(Rotation)和縮放(Scale)的強度選項。</li>
+<li>   調整「Strength」、「Random Strength」和「Step Strength」參數，以控制實例變換的隨機性和強度。</li>
+</ul>
+<h4 id="5-應用設置-1"><a href="#5-應用設置-1" class="headerlink" title="5.	應用設置"></a>5.	<strong>應用設置</strong></h4><ul>
+<li>   完成所有設置後，檢查並應用這些參數。</li>
+<li>   確保「Map Helper」和其他輔助選項設置正確，來進一步調整分佈效果。</li>
+</ul>
+<h3 id="Step-9-使用MASH工具進行群眾模擬設置"><a href="#Step-9-使用MASH工具進行群眾模擬設置" class="headerlink" title="Step 9.使用MASH工具進行群眾模擬設置"></a>Step 9.使用MASH工具進行群眾模擬設置</h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step9.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="1-選擇MASH網絡-3"><a href="#1-選擇MASH網絡-3" class="headerlink" title="1.	選擇MASH網絡"></a>1.	<strong>選擇MASH網絡</strong></h4><ul>
+<li>   在Outliner面板中，選擇你創建的MASH網絡。在這個例子中，選擇的是 “MASH1_ReproMesh”。</li>
+</ul>
+<h4 id="2-打開Deform菜單"><a href="#2-打開Deform菜單" class="headerlink" title="2.	打開Deform菜單"></a>2.	<strong>打開Deform菜單</strong></h4><ul>
+<li>   在頂部菜單欄中，選擇「Deform」菜單。</li>
+<li>   展開「Deform」菜單，顯示可用的變形工具選項。</li>
+</ul>
+<h4 id="3-選擇ShrinkWrap變形工具"><a href="#3-選擇ShrinkWrap變形工具" class="headerlink" title="3.	選擇ShrinkWrap變形工具"></a>3.	<strong>選擇ShrinkWrap變形工具</strong></h4><ul>
+<li>   在「Deform」菜單中，找到並選擇「ShrinkWrap」變形工具。</li>
+<li>   ShrinkWrap工具可以幫助你將實例對象貼合到指定的表面上，以實現更自然的分佈效果。</li>
+</ul>
+<h3 id="step-10-使用ShrinkWrap變形工具進行實例貼合"><a href="#step-10-使用ShrinkWrap變形工具進行實例貼合" class="headerlink" title="step 10.使用ShrinkWrap變形工具進行實例貼合"></a>step 10.使用ShrinkWrap變形工具進行實例貼合</h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step10.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="1-選擇ShrinkWrap變形工具"><a href="#1-選擇ShrinkWrap變形工具" class="headerlink" title="1.	選擇ShrinkWrap變形工具"></a>1.	<strong>選擇ShrinkWrap變形工具</strong></h4><ul>
+<li>   在右側屬性面板中，選擇你剛才添加的ShrinkWrap節點。在這個例子中，選擇的是 “shrinkWrap1”。</li>
+</ul>
+<h4 id="2-設置投影模式"><a href="#2-設置投影模式" class="headerlink" title="2.	設置投影模式"></a>2.	<strong>設置投影模式</strong></h4><ul>
+<li>   在「ShrinkWrap Attributes」部分，找到「Projection」選項。</li>
+<li>   從下拉菜單中選擇「Vertex Normals」作為投影模式。這將根據頂點法線來貼合實例。</li>
+</ul>
+<h4 id="3-調整目標膨脹"><a href="#3-調整目標膨脹" class="headerlink" title="3.	調整目標膨脹"></a>3.	<strong>調整目標膨脹</strong></h4><ul>
+<li>   調整「Target Inflation」選項，確保實例適當地貼合到目標對象表面。</li>
+</ul>
+<h4 id="4-設置平滑層級"><a href="#4-設置平滑層級" class="headerlink" title="4.	設置平滑層級"></a>4.	<strong>設置平滑層級</strong></h4><ul>
+<li>   調整「Target Smooth Level」選項，以控制貼合的平滑度。</li>
+</ul>
+<h4 id="5-檢查和調整-1"><a href="#5-檢查和調整-1" class="headerlink" title="5.	檢查和調整"></a>5.	<strong>檢查和調整</strong></h4><ul>
+<li>   在視圖窗口中檢查實例的貼合效果，根據需要進行微調，確保實例正確地貼合到目標對象表面。</li>
+</ul>
+<h3 id="step11-使用MASH工具進行ID節點設置"><a href="#step11-使用MASH工具進行ID節點設置" class="headerlink" title="step11.使用MASH工具進行ID節點設置"></a><strong>step11.使用MASH工具進行ID節點設置</strong></h3><img src="/codeArt-TechBlog/img/maya/Guide to Setup Walkcycle to Loop Mode/step11.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;">
+
+<h4 id="1-選擇MASH網絡-4"><a href="#1-選擇MASH網絡-4" class="headerlink" title="1.	選擇MASH網絡"></a>1.	<strong>選擇MASH網絡</strong></h4><ul>
+<li>   在Outliner面板中，選擇你創建的MASH網絡。在這個例子中，選擇的是 “MASH2”。</li>
+</ul>
+<h4 id="2-打開Add-Node選項"><a href="#2-打開Add-Node選項" class="headerlink" title="2.	打開Add Node選項"></a>2.	<strong>打開Add Node選項</strong></h4><ul>
+<li>   在右側屬性面板中，展開「Add Node」部分。</li>
+<li>   顯示可用的MASH節點類型。</li>
+</ul>
+<h4 id="3-添加ID節點"><a href="#3-添加ID節點" class="headerlink" title="3.	添加ID節點"></a>3.	<strong>添加ID節點</strong></h4><ul>
+<li>   在「Add Node」部分，找到並點擊「ID」節點。</li>
+<li>   ID節點可以幫助你為不同的實例分配唯一的標識符，以便進行進一步的控制和變化。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/codeArt-TechBlog/categories/maya/" class="category-chain-item">maya</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/codeArt-TechBlog/tags/maya/" class="print-no-link">#maya</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Guide to Setup Walkcycle to Loop Mode</div>
+      <div>https://stonetein.github.io/codeArt-TechBlog/2024/07/22/Guide-to-Setup-Walkcycle-to-Loop-Mode/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Stone</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>July 22, 2024</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/codeArt-TechBlog/2024/07/21/Video-Shop-of-chrome-extension/" title="Video Shop of chrome extension">
+                        <span class="hidden-mobile">Video Shop of chrome extension</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="remark42"></div>
+  <script type="text/javascript">
+    var schema = document.documentElement.getAttribute('data-user-color-scheme');
+    if (schema !== 'light' && schema !== 'dark') {
+      schema = 'light';
+    }
+    var remark_config = Object.assign(
+      {"host":"https://techblog.diskstation.me","site_id":"remark","max_shown_comments":10,"locale":"en","components":["embed"]},
+      {
+        url: '/codeArt-TechBlog/2024/07/22/Guide-to-Setup-Walkcycle-to-Loop-Mode/',
+        page_title: 'Guide to Setup Walkcycle to Loop Mode',
+        theme: schema,
+      }
+    );
+
+    Fluid.utils.loadComments('#remark42', function() {
+      (function (c) {
+        for (var i = 0; i < c.length; i++) {
+          var d = document, s = d.createElement('script');
+          s.src = remark_config.host + '/web/' + c[i] + '.js';
+          console.log(s.src)
+          s.defer = true;
+          (d.head || d.body).appendChild(s);
+        }
+      })(remark_config.components || ['embed']);
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/codeArt-TechBlog/js/events.js" ></script>
+<script  src="/codeArt-TechBlog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/codeArt-TechBlog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/codeArt-TechBlog/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/codeArt-TechBlog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

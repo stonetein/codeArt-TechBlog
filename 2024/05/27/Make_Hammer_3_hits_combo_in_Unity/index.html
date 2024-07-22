@@ -16,19 +16,19 @@
   <meta name="author" content="Stone">
   <meta name="keywords" content="Maya,Rig,python,Animation,comfyUI,Unity,Unreal">
   
-    <meta name="description" content="Unity Game Play View          Design and Thoughts Hammer 3 hits combokey pose and spacing 重量感 key pose and spacing 誇張 key pose 重量緩衝預備 重量與動作拉扯感  遊戲攻擊節奏 spacing 強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖">
+    <meta name="description" content="Unity Game Play View    Design and Thoughts Hammer 3 hits combokey pose and spacing 重量感 key pose and spacing 誇張 key pose 重量緩衝預備 重量與動作拉扯感  遊戲攻擊節奏 spacing1. 強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖以 At">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Make Hammer 3 hits combo in Unity">
 <meta property="og:url" content="https://stonetein.github.io/codeArt-TechBlog/2024/05/27/Make_Hammer_3_hits_combo_in_Unity/index.html">
 <meta property="og:site_name" content="codeArt-TechBlog">
-<meta property="og:description" content="Unity Game Play View          Design and Thoughts Hammer 3 hits combokey pose and spacing 重量感 key pose and spacing 誇張 key pose 重量緩衝預備 重量與動作拉扯感  遊戲攻擊節奏 spacing 強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖">
+<meta property="og:description" content="Unity Game Play View    Design and Thoughts Hammer 3 hits combokey pose and spacing 重量感 key pose and spacing 誇張 key pose 重量緩衝預備 重量與動作拉扯感  遊戲攻擊節奏 spacing1. 強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖以 At">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://stonetein.github.io/codeArt-TechBlog/img/hammer.jfif">
 <meta property="article:published_time" content="2024-05-27T03:00:44.000Z">
 <meta property="article:modified_time" content="2024-05-27T03:00:44.000Z">
 <meta property="article:author" content="Stone">
-<meta property="article:tag" content="Unity">
 <meta property="article:tag" content="maya">
+<meta property="article:tag" content="Unity">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://stonetein.github.io/codeArt-TechBlog/img/hammer.jfif">
   
@@ -335,9 +335,9 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Unity-Game-Play-View"><a href="#Unity-Game-Play-View" class="headerlink" title="Unity Game Play View"></a>Unity Game Play View</h2>  <video controls style="width: 100%; height: auto;">
-  <source src="/codeArt-TechBlog/video/Hammer3Hit.mp4" type="video/mp4">
-  </video>
+                <h2 id="Unity-Game-Play-View"><a href="#Unity-Game-Play-View" class="headerlink" title="Unity Game Play View"></a>Unity Game Play View</h2><video controls style="width: 100%; height: auto;">
+<source src="/codeArt-TechBlog/video/Hammer3Hit.mp4" type="video/mp4">
+</video>
 
 <h2 id="Design-and-Thoughts-Hammer-3-hits-combo"><a href="#Design-and-Thoughts-Hammer-3-hits-combo" class="headerlink" title="Design and Thoughts Hammer 3 hits combo"></a>Design and Thoughts Hammer 3 hits combo</h2><h3 id="key-pose-and-spacing"><a href="#key-pose-and-spacing" class="headerlink" title="key pose and spacing"></a>key pose and spacing</h3><ol>
 <li>重量感 key pose and spacing</li>
@@ -345,19 +345,12 @@
 <li>重量緩衝預備</li>
 <li>重量與動作拉扯感</li>
 </ol>
-<h3 id="遊戲攻擊節奏-spacing"><a href="#遊戲攻擊節奏-spacing" class="headerlink" title="遊戲攻擊節奏 spacing"></a>遊戲攻擊節奏 spacing</h3><ol>
-<li><p>強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖以 Attack 02 為例</p>
-<ul>
-<li>Attack02<img src="/codeArt-TechBlog/img/unity/Attack02.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;"></li>
-</ul>
-</li>
-<li><p>重型武器，hits ( atk01-40 frames、atk02-33 frames、atk03-56 frames ) 如下參考 3 hit combo</p>
-<ul>
-<li>當攻擊間距較大且速度快與預備緩衝間距小且速度慢，會形成反差的對比，玩家在體感上也較可以明顯感受武器的重量<br> &lt;video controls style&#x3D;”width: 100%; height: auto;&gt; <source src="/codeArt-TechBlog/video/3_hit_combo_motion_trail.mp4" type="video/mp4">
- </video></li>
-</ul>
-</li>
-</ol>
+<h3 id="遊戲攻擊節奏-spacing"><a href="#遊戲攻擊節奏-spacing" class="headerlink" title="遊戲攻擊節奏 spacing"></a>遊戲攻擊節奏 spacing</h3><h4 id="1-強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖以-Attack-02-為例"><a href="#1-強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖以-Attack-02-為例" class="headerlink" title="1. 強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖以 Attack 02 為例"></a>1. 強調重型武器的重量感，預備與緩衝動作間距小且速度慢，攻擊動作間距大且速度快，如下圖以 Attack 02 為例</h4><p>Attack02<br><img src="/codeArt-TechBlog/img/unity/Attack02.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="800" style="display: block; margin-left: 0;"></p>
+<h4 id="2-重型武器，hits-atk01-40-frames、atk02-33-frames、atk03-56-frames-如下參考-3-hit-combo"><a href="#2-重型武器，hits-atk01-40-frames、atk02-33-frames、atk03-56-frames-如下參考-3-hit-combo" class="headerlink" title="2. 重型武器，hits ( atk01-40 frames、atk02-33 frames、atk03-56 frames ) 如下參考 3 hit combo"></a>2. 重型武器，hits ( atk01-40 frames、atk02-33 frames、atk03-56 frames ) 如下參考 3 hit combo</h4><p>當攻擊間距較大且速度快與預備緩衝間距小且速度慢，會形成反差的對比，玩家在體感上也較可以明顯感受武器的重量</p>
+<video controls style="width:100% ; height: auto;"> 
+<source src="/codeArt-TechBlog/video/3_hit_combo_motion_trail.mp4" type="video/mp4">
+</video>
+
 <h2 id="Import-process-and-settings-build-game"><a href="#Import-process-and-settings-build-game" class="headerlink" title="Import process and settings &amp; build game"></a>Import process and settings &amp; build game</h2><h3 id="maya-export-fbx-option-item"><a href="#maya-export-fbx-option-item" class="headerlink" title="maya export fbx option item"></a>maya export fbx option item</h3><h4 id="option"><a href="#option" class="headerlink" title="option"></a>option</h4><img src="/codeArt-TechBlog/img/unity/mayaExportFbx.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
 
 <ol>
@@ -406,7 +399,10 @@
 
 <h3 id="create-scene-props"><a href="#create-scene-props" class="headerlink" title="create scene &amp; props"></a>create scene &amp; props</h3><h4 id="assets："><a href="#assets：" class="headerlink" title="assets："></a>assets：</h4><img src="/codeArt-TechBlog/img/unity/env_assets.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
 
-<h4 id="processing："><a href="#processing：" class="headerlink" title="processing："></a>processing：</h4><p><video controls style="width: 100%; height: auto;"><source src="/codeArt-TechBlog/video/unity/create_scene.mp4" type="video/mp4"></video></p>
+<h4 id="processing："><a href="#processing：" class="headerlink" title="processing："></a>processing：</h4><video controls style="width: 100%; height: auto;">
+<source src="/codeArt-TechBlog/video/unity/create_scene.mp4" type="video/mp4">
+</video>
+
 <h3 id="add-sounds-to-gameplay"><a href="#add-sounds-to-gameplay" class="headerlink" title="add sounds to gameplay"></a>add sounds to gameplay</h3><h4 id="sounds-assets"><a href="#sounds-assets" class="headerlink" title="sounds assets"></a>sounds assets</h4>   <img src="/codeArt-TechBlog/img/unity/audio_assets.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
 
 <h4 id="setup-in-animation-then-add-events-to-frmes-bar"><a href="#setup-in-animation-then-add-events-to-frmes-bar" class="headerlink" title="setup in animation then add events to frmes bar"></a>setup in animation then add events to frmes bar</h4>   <img src="/codeArt-TechBlog/img/unity/add_event_setup.png" srcset="/codeArt-TechBlog/img/loading.gif" lazyload width="400" style="display: block; margin-left: 0;">
@@ -452,9 +448,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/codeArt-TechBlog/tags/Unity/" class="print-no-link">#Unity</a>
-      
         <a href="/codeArt-TechBlog/tags/maya/" class="print-no-link">#maya</a>
+      
+        <a href="/codeArt-TechBlog/tags/Unity/" class="print-no-link">#Unity</a>
       
     </div>
   
